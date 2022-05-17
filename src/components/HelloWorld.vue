@@ -1,10 +1,26 @@
 <template>
   <div>
     <el-row>
-      <el-col :span="4"> 这里是签名图片 </el-col>
-      <el-col :span="8"> zhe li fang sha </el-col>
-      <el-col :span="8"> this is lianjie </el-col>
-      <el-col :span="4"> 这里放点图标 </el-col>
+      <el-col :span="4"><div class="grid-content bg-purple"></div> </el-col>
+      <el-col :span="8"> <div class="grid-content bg-purple"></div> </el-col>
+      <el-col :span="8">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+      <el-col :span="4" class="mySite">
+        <el-link
+          href="https://blog.csdn.net/cadi2011"
+          :underline="false"
+          target="_blank"
+        >
+          <el-image
+            :src="require('../assets/csdn.png')"
+            fit="fill"
+            class="csdn"
+          >
+          </el-image>
+          <!--发现不能用.ico的文件，我直接改名为png-->
+        </el-link>
+      </el-col>
     </el-row>
     <el-row>
       <el-col :span="24">
@@ -20,7 +36,7 @@
     </el-row>
     <el-row>
       <el-col :span="24">
-        <el-image class="myPhoto" :src="require('../assets/logo.png')" />
+        <el-image class="myPhoto" :src="require('../assets/myself.jpg')" />
       </el-col>
     </el-row>
 
@@ -30,7 +46,10 @@
       </el-col>
     </el-row>
     <el-row class="ability-row">
-      <el-col :span="6">
+      <el-col :span="4">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+      <el-col :span="4">
         <div class="ability-item">
           <h3 class="ability-header">Python</h3>
           <p class="ability-content">
@@ -38,26 +57,30 @@
           </p>
         </div>
       </el-col>
-      <el-col :span="6">
+
+      <el-col :span="4">
         <div class="ability-item">
           <h3 class="ability-header">Java</h3>
           <p class="ability-content">
-            熟悉使用Java开发UI自动化程序,适用于Android平台
+            Java开发UI自动化程序,适用于Android平台,编写Android App
           </p>
         </div>
       </el-col>
 
-      <el-col :span="6">
+      <el-col :span="4">
         <div class="ability-item">
           <h3 class="ability-header">Shell</h3>
-          <p class="ability-content">熟练使用shell编写bash脚本程序</p>
+          <p class="ability-content">Shell编写bash脚本程序,自动化测试程序</p>
         </div>
       </el-col>
-      <el-col :span="6">
+      <el-col :span="4">
         <div class="ability-item">
           <h3 class="ability-header">自动化测试</h3>
-          <p class="ability-content">多个已落地的自动化项目的开发与实现</p>
+          <p class="ability-content">多个自动化测试项目的开发与落地</p>
         </div>
+      </el-col>
+      <el-col :span="4">
+        <div class="grid-content bg-purple"></div>
       </el-col>
     </el-row>
 
@@ -71,7 +94,14 @@
               placement="top"
             >
               <el-card>
-                <h3 class="company">{{ this.company.xiaomi.name }}</h3>
+                <div class="clearfix">
+                  <el-image
+                    :src="require('../assets/mi.png')"
+                    fit="fill"
+                    class="companyLogo"
+                  ></el-image>
+                  <h3 class="company">{{ this.company.xiaomi.name }}</h3>
+                </div>
                 <h4 class="position">{{ this.company.xiaomi.position }}</h4>
                 <p
                   v-bind:key="part"
@@ -88,7 +118,15 @@
               placement="top"
             >
               <el-card>
-                <h3 class="company">{{ this.company.cm.name }}</h3>
+                <div class="clearfix">
+                  <el-image
+                    :src="require('../assets/cm.png')"
+                    fit="fill"
+                    class="companyLogo"
+                  ></el-image>
+                  <h3 class="company">{{ this.company.cm.name }}</h3>
+                </div>
+
                 <h4 class="position">{{ this.company.cm.position }}</h4>
                 <p
                   v-bind:key="part"
@@ -105,7 +143,15 @@
               placement="top"
             >
               <el-card>
-                <h3 class="company">{{ this.company.thunder.name }}</h3>
+                <div class="clearfix">
+                  <el-image
+                    v-bind:src="require('../assets/xl.png')"
+                    class="companyLogo"
+                    fit="fill"
+                  >
+                  </el-image>
+                  <h3 class="company">{{ this.company.thunder.name }}</h3>
+                </div>
                 <h4 class="position">{{ this.company.thunder.position }}</h4>
                 <p
                   v-bind:key="part"
@@ -122,7 +168,15 @@
               placement="top"
             >
               <el-card>
-                <h3 class="company">{{ this.company.wh.name }}</h3>
+                <div class="clearfix">
+                  <el-image
+                    v-bind:src="require('../assets/wh.png')"
+                    class="companyLogo"
+                    fit="fill"
+                  >
+                  </el-image>
+                  <h3 class="company">{{ this.company.wh.name }}</h3>
+                </div>
                 <h4 class="position">{{ this.company.wh.position }}</h4>
                 <p
                   v-bind:key="part"
@@ -139,7 +193,10 @@
               placement="top"
             >
               <el-card>
-                <h3 class="company">{{ this.company.wk.name }}</h3>
+                <div class="clearfix">
+                  <h3 class="company">{{ this.company.wk.name }}</h3>
+                </div>
+
                 <h4 class="position">{{ this.company.wk.position }}</h4>
                 <p
                   v-bind:key="part"
@@ -182,6 +239,9 @@
               <div class="info-text">
                 <span class="text-type">成果:</span>{{ detail.success }}
               </div>
+              <div class="info-text">
+                <span class="text-type">技术栈:</span>{{ detail.tech }}
+              </div>
             </div>
           </el-tab-pane>
         </el-tabs>
@@ -195,7 +255,7 @@ export default {
   props: {},
   data() {
     return {
-      sayHello: "Hello! 我的名字是",
+      sayHello: "Hi! 我的名字是",
       sayHelloName: "王鹏",
       introduce: "以下是我的介绍",
       job: "我是一名测试开发工程师",
@@ -292,11 +352,13 @@ export default {
         BossApp: {
           name: "BossApp",
           range: "2015/12-2017/06",
-          bg: "测试团队没有工具,结合测试过程中遇到的事情,试着通过程序解决",
-          content: "自主设计、自主开发效能工具App,用于帮助测试与开发团队发挥最大工作效能，不仅节约了测试时间，也为测试团队的影响力做出巨大贡献，以下为工具投入前后的工作效能对比数据",
+          bg: "功能测试团队没有效率工具,我这个工具是第一个测试工具，也是我第一次将测试过程中遇到的事情,试着去通过程序提高效率",
+          content:
+            "自主设计、自主开发效能工具App,用于帮助测试与开发团队发挥最大工作效能，不仅节约了测试时间，也为测试团队的影响力做出巨大贡献，以下为工具投入前后的工作效能对比数据",
           how: "怎么做的",
-          tech: "技术栈有哪些",
-          success: "App切换服务端环境时间由至少30s减少至1s;拷贝100个以上Bt种子文件到本地磁盘由2分钟减少至3s",
+          success:
+            "App切换服务端环境的时间由30s减少至1s;拷贝100个+个Bt种子文件到Android磁盘中,由2分钟减少至3s;复制不同协议的URL下载,过程由30s减少至1s;下载10个任务的时间的操作时间由2分钟减少至5s",
+          tech: "Activity生命周期;Handler机制;相关布局:LinearLayout,RelativeLayout,FrameLayout,WebView;相关控件:TextView,Button,ImageView,ProgressBar,SeekBar;持久化:SharedPreference;组件跳转:Intent。数据结构:ArrayList,HashMap,Array;多线程:AsyncTask;SDK:Bugly。动画:。提示:Toast,SnackBar",
         },
         Monkey: {
           name: "Monkey自动化",
@@ -347,10 +409,12 @@ export default {
           name: "SDK性能自动化测试",
           range: "2015/12-2017/06",
           bg: "测试团队没有工具，总在重复做一些事情",
-          content: "干点打杂的事情",
+          content:
+            "自主设计、独立开发UI全自动化项目，项目实现了手工测试所有环节的自动化，做到真正的全自动化。有效的替代了手工测试人力资源。负责UI自动化项目架构设计与二次开发:引入POM、调用链模式、模板方法模式、封装页面基类、封装测试用例基类、引入网络库、加入动态查找控件功能，解决UI自动化项目最难的稳定性与可靠性问题（各种偶现bug的处理），Jenkins搭建、开发后端应用负责收集数据、负责性能可视化报告自动生成，负责开发网络状态监测工具、本地云台建设等等。UI自动化项目实现了与竞品性能间的快速反馈测试，为开发团队优化性能提供了最有力、最快速的测试保障。大大提高了开发效率……以下为自动化前与自动化后的投入测试时间对比",
           how: "怎么做的",
-          tech: "技术栈有哪些",
-          success: "取得的成就",
+          tech: "Java、Python、Jenkins、Shell、Junit4、Ui Automator、设计模式、本地存储、Gradle、JavaScript、Html、Linux",
+          success:
+            "手工测试：至少8小时（深夜进行测试）自动化测试：仅占用30s的查看邮件报告时间手工测试时间（凌晨12点定时启动）。由于可以快速获取测试结果，研发团队得已高速研发",
         },
         Platform: {
           name: "测试平台",
@@ -404,25 +468,37 @@ export default {
 }
 
 .myPhoto {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 400px;
   text-align: center;
   margin: 0px auto;
   display: block;
+  padding: 25px 0px;
 }
 
 .myJob {
   text-align: center;
-  font-weight: bold;
-  font-size: 1.4em;
+  font-weight: 400;
+  font-family: adobe-caslon-pro;
+  letter-spacing: 0.2em;
+  font-size: calc((1.7 - 1) * 1.2vw + 1rem);
 }
 
 .ability-header {
   margin: 0 auto;
+  font-weight: 400;
+  font-family: adobe-caslon-pro;
+  font-style: italic;
+  letter-spacing: 2px;
+  text-transform: none;
 }
 
 .ability-item {
+  font-family: "Helvetica Neue", Arial, sans-serif;
   padding: 0 17px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.6;
   text-align: center;
   white-space: pre-wrap;
 }
@@ -450,12 +526,9 @@ export default {
 .projectContain .info-text {
   font-size: 14px;
   color: #61687c;
+  padding: 7px 0;
 }
 
-.projectContain .info-text.titleContain {
-  height: 50px;
-  line-height: 50px;
-}
 
 .projectContain .info-text .projectTitle {
   float: left;
@@ -482,5 +555,43 @@ export default {
   color: #61687c;
   padding-right: 7px;
   font-size: 14px;
+}
+
+.projectContain .info-text:hover {
+  background: #fff1e6;
+}
+
+.csdn {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.grid-content {
+  /*没有这个样式，没有内容的el-col不会占据空间*/
+  border-radius: 4px;
+  min-height: 36px;
+}
+
+div .companyLogo {
+  float: left;
+  margin-top: 11px;
+  margin-right: 11px;
+  border-radius: 50%;
+}
+
+div .company {
+  float: left;
+}
+
+.mySite {
+  text-align: right;
+}
+
+.projectContain .info-text.titleContain {
+  height: 50px;
+  line-height: 50px;
+  background: none;
 }
 </style>
